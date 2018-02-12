@@ -6,7 +6,7 @@
    <img src="_3.png">
 
 ## Source 
-   src/GenerateData.py.py
+   src/GenerateData.py
 
 ## Executable
    dist/GenerateData.exe
