@@ -2,6 +2,7 @@
 # Copyright@2018
 # lamhotsimamora36@gmail.com
 
+from random import randint
 import __dataReader as reader
 
 def queryTable():
@@ -11,7 +12,7 @@ class QueryBuilder:
 
 	def __init__(self,count,table_name='t_user'):
 		self.table = table_name
-		self.field = ['name','email','phone','address']
+		self.field = ['name','email','phone','address','age','birthday']
 		self.count = count
 
 	def insert(self):
@@ -30,6 +31,7 @@ class QueryBuilder:
 		query_end = ' values '
 		for x in range(self.count):
 			prepare_value = '('
+			age = randint(17,55)
 			for y in range(len(field)):
 				data = ''
 				if y==0:
@@ -40,6 +42,10 @@ class QueryBuilder:
 					data = "'"+reader.getPhone()+"'"
 				elif y==3:
 					data = "'"+reader.getAddress()+"'"
+				elif y==4:
+					data = str(age) 
+				elif y==5:
+					data = "'"+generateDate(age)+"'"
 				if y == (len(field)-1):
 					prepare_value += data
 				else:
@@ -55,5 +61,11 @@ class QueryBuilder:
 		return query_final
 
 		
+def generateDate(age):
+	y = 2018-age
+	y = str(y)+'-'
+	m = str(randint(1,12)) + '-'
+	d = str(randint(1,31))
+	return y+m+d
 
 

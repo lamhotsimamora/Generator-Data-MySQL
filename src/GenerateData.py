@@ -3,6 +3,7 @@
 # lamhotsimamora36@gmail.com
 
 import os,sys,__generateQuery as app
+import subprocess
 
 def writeFile(file,content):
   file = open(file,'w')
@@ -73,15 +74,21 @@ def showMenu():
             check = True
             showMenu() 
 
+def openDir():
+    subprocess.Popen(r'explorer /select,".//result"')
+    showMenu()
+
 def info():
     print('')
     print('Table Name : t_user ')
     print('')
-    print('[ id      (integer 5 ) (primary key) (auto increment) ]')
-    print('[ name    (varchar 60) ]')
-    print('[ email   (varchar 60) ]')
-    print('[ phone   (varchar 60) ]')
-    print('[ address (varchar 60) ]')
+    print('[ id       ( integer 5  ) (primary key) (auto increment) ]')
+    print('[ name     ( varchar 60 ) ]')
+    print('[ email    ( varchar 60 ) ]')
+    print('[ phone    ( varchar 60 ) ]')
+    print('[ address  ( varchar 60 ) ]')
+    print('[ age      ( integer 2  ) ]')
+    print('[ birthday ( date       ) ]')
     showMenu()
 
 def clear():
