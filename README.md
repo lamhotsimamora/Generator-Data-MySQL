@@ -3,8 +3,8 @@
 v 3.6.2 Python
 
 ## ScreenShoot
-   <img src="1.jpg">
-   <img src="2.jpg">
+   <img src="1.JPG">
+   <img src="2.JPG">
 
 ## Source 
    src/GenerateData.py
