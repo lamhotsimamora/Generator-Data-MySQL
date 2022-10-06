@@ -1,5 +1,5 @@
 # Author @lamhotsimamora
-# Copyright@2018
+# Copyright@2022
 # lamhotsimamora36@gmail.com
 
 import os,random

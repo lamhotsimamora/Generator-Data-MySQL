@@ -1,16 +1,18 @@
 # Author @lamhotsimamora
-# Copyright@2018
+# Copyright@2022
 # lamhotsimamora36@gmail.com
 
 from random import randint
 import __dataReader as reader
+import datetime
+
 
 def queryTable():
 	return reader.getQueryTable()
 
 class QueryBuilder:
 
-	def __init__(self,count,table_name='t_user'):
+	def __init__(self,count,table_name='users'):
 		self.table = table_name
 		self.field = ['name','email','phone','address','age','birthday']
 		self.count = count
@@ -62,8 +64,10 @@ class QueryBuilder:
 
 		
 def generateDate(age):
-	y = 2018-age
-	y = str(y)+'-'
+	today = datetime.date.today()
+	year = today.year
+	year = year-age
+	y = str(year)+'-'
 	m = str(randint(1,12)) + '-'
 	d = str(randint(1,31))
 	return y+m+d

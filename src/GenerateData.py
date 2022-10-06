@@ -1,5 +1,5 @@
 # Author @lamhotsimamora
-# Copyright@2018
+# Copyright@2022
 # lamhotsimamora36@gmail.com
 
 import os,sys,__generateQuery as app
@@ -10,6 +10,7 @@ def writeFile(file,content):
   file.write(content)
   file.close()
   print('[1] Done ')
+  print('File Path -> '+file)
   print('')
 
 def process(count,type):
@@ -40,6 +41,14 @@ def GenerateData(type):
 	except Exception as e:
 		GenerateData(type)
 
+def createDatabase():
+  try:
+    result = input('Database name please ? ')
+    query  = 'create DATABASE '+result+';'
+    writeFile('result/create_database_'+result+'.sql',query)
+    showMenu()
+  except Exception as e:
+    print(e)
 
 def about():
     print(" ")
@@ -65,8 +74,12 @@ def showMenu():
             elif get == 3:
                info()
             elif get == 4:
-               clear()
+               createDatabase()
             elif get == 5:
+               openDir()
+            elif get == 6:
+               clear()
+            elif get == 7:
                about()
             else:
                showMenu()
@@ -80,7 +93,7 @@ def openDir():
 
 def info():
     print('')
-    print('Table Name : t_user ')
+    print('Table Name : users ')
     print('')
     print('[ id       ( integer 5  ) (primary key) (auto increment) ]')
     print('[ name     ( varchar 60 ) ]')
@@ -98,13 +111,15 @@ def clear():
 
 def _init():
     print("**********************************************")
-    print("=============== Generator Data ===============")
+    print("=========== Generator Data MySQL  =========== ")
     print("**********************************************")
-    print("1.  Create Table & Generate Data              ")
+    print("1.  Create Table Users & Generate Data        ")
     print("2.  Only Generate Data                        ")
     print("3.  Info Table & Field                        ")
-    print("4.  Clear Screen                              ")
-    print("5.  About                                     ")
+    print("4.  Create Database                           ")
+    print("5.  Open Directory                            ")
+    print("6.  Clear Screen                              ")
+    print("7.  About                                     ")
     print("**********************************************")
 
 _init()
